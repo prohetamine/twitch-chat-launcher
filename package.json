@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "color-generator": "^0.1.0",
     "electron-prompt": "^1.7.0"
   }
 }
