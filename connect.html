@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Connect</title>
+</head>
+<body>
+  <style>
+    .main {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      -webkit-user-select: none;
+      -webkit-app-region: drag;
+    }
+
+    .ui {
+      box-sizing: border-box;
+      padding: 10px 15px;
+      width: 200px;
+      margin-bottom: 6px;
+      background: #fff;
+      border: 2px solid #9147ff;
+      font-size: 16px;
+      border-radius: 0.4rem;
+      outline: none;
+      -webkit-app-region: no-drag;
+    }
+
+    button.ui {
+      color: #fff;
+      background: #9147ff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <div class='main'>
+    <div>
+      <input type='text' class='ui' placeholder='username..'>
+    </div>
+    <div>
+      <button class='ui'>Connect</button>
+    </div>
+  </div>
+  <script>
+    const input = document.querySelector('input')
+        , button = document.querySelector('button')
+
+    input.value = localStorage.username ? localStorage.username : ''
+
+    button.addEventListener('click', () => {
+      if (input.value.length > 1) {
+        localStorage.username = input.value
+        location.href = `https://www.twitch.tv/embed/${input.value}/chat?parent=${input.value}`
+      }
+    })
+  </script>
+</body>
+</html>
